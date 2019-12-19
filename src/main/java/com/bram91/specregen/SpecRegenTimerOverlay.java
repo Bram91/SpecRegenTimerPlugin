@@ -73,16 +73,26 @@ public class SpecRegenTimerOverlay extends Overlay {
         final Item weapon = items[EquipmentInventorySlot.WEAPON.getSlotIdx()];
         final ItemComposition weaponComp = itemManager.getItemComposition(weapon.getId());
 
-        String weaponname = weaponComp.getName().replaceAll("\\([^()]*\\)","").toLowerCase();
-        if(weapons.containsKey(weaponname))
+        String weaponName;
+        //magic shortbow(i) had to be special
+        if(weaponComp.getName().toLowerCase().equals("magic shortbow (i)"))
         {
-            if(weaponname.equals("granite maul") && Arrays.asList(24225,24226,24227,24228).contains(weaponComp.getId()))
+            weaponName = "magic shortbow (i)";
+        }
+        else
+        {
+            weaponName = weaponComp.getName().replaceAll("\\([^()]*\\)","").toLowerCase();
+        }
+
+        if(weapons.containsKey(weaponName))
+        {
+            if(weaponName.equals("granite maul") && Arrays.asList(24225,24226,24227,24228).contains(weaponComp.getId()))
             {
                 specTarget = 50;
             }
             else
             {
-                specTarget = weapons.get(weaponname);
+                specTarget = weapons.get(weaponName);
             }
         }
         specCount = (int) (currentSpec / specTarget);

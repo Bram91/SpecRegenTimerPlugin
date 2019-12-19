@@ -22,7 +22,7 @@ public class Weapons {
         weapons.put("dragon axe", 100);
         weapons.put("infernal axe", 100);
         weapons.put("3rd age axe", 100);
-        weapons.put("crystal axce", 100);
+        weapons.put("crystal axe", 100);
         weapons.put("dragon harpoon", 100);
         weapons.put("infernal harpoon", 100);
         weapons.put("crystal harpoon", 100);
