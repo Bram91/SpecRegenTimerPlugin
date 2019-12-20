@@ -6,7 +6,6 @@ import javax.inject.Inject;
 import lombok.Getter;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
-import net.runelite.api.ChatMessageType;
 import net.runelite.api.VarPlayer;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
@@ -26,6 +25,7 @@ public class SpecRegenTimerPlugin extends Plugin
 {
 	@Getter
 	private double specialPercentage;
+
 	private int ticksSinceSpecRegen;
 	private static final int SPEC_REGEN_TICKS = 50;
 
