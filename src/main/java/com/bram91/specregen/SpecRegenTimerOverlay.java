@@ -68,7 +68,7 @@ public class SpecRegenTimerOverlay extends Overlay {
         return null;
     }
 
-    public void updateSpec() {
+    public void updateSpec(){
         //0.2% spec restore per tick
         if(client.getItemContainer(InventoryID.EQUIPMENT)==null)
         {
@@ -77,6 +77,10 @@ public class SpecRegenTimerOverlay extends Overlay {
         currentSpec = Math.floor((client.getVar(VarPlayer.SPECIAL_ATTACK_PERCENT)/10)+(plugin.getSpecialPercentage()*10));
         int specTarget = 100;
         final Item[] items = client.getItemContainer(InventoryID.EQUIPMENT).getItems();
+        if(items.length<=EquipmentInventorySlot.WEAPON.getSlotIdx())
+        {
+            return;
+        }
         final Item weapon = items[EquipmentInventorySlot.WEAPON.getSlotIdx()];
         final ItemComposition weaponComp = itemManager.getItemComposition(weapon.getId());
 
