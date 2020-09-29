@@ -80,6 +80,9 @@ public class Weapons {
         weapons.put("rod of invandis", 10);
         weapons.put("ivandis flail", 10);
         weapons.put("dawnbringer", 35);
+        weapons.put("blisterwood flail", 10);
+        weapons.put("eldritch nightmare staff", 55);
+        weapons.put("volatile nightmare staff", 55);
         return weapons;
     }
  }
