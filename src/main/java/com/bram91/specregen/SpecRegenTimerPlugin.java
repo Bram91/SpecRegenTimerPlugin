@@ -1,15 +1,11 @@
 package com.bram91.specregen;
 
-import com.google.inject.Provides;
 import javax.inject.Inject;
 
 import lombok.Getter;
 import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.api.VarPlayer;
-import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
-import net.runelite.client.config.ConfigManager;
+import net.runelite.api.gameval.VarPlayerID;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -56,7 +52,7 @@ public class SpecRegenTimerPlugin extends Plugin
 	@Subscribe
 	public void onGameTick(GameTick event)
 	{
-		if (client.getVar(VarPlayer.SPECIAL_ATTACK_PERCENT) == 1000)
+		if (client.getVarpValue(VarPlayerID.SA_ENERGY) == 1000)
 		{
 			// The recharge doesn't tick when at 100%
 			ticksSinceSpecRegen = 0;
