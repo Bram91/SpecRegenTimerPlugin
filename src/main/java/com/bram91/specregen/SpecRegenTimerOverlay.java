@@ -3,6 +3,7 @@ package com.bram91.specregen;
 import net.runelite.api.*;
 import net.runelite.api.Point;
 import net.runelite.api.gameval.ItemID;
+import net.runelite.api.gameval.SpriteID;
 import net.runelite.api.gameval.VarPlayerID;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.gameval.InterfaceID;
@@ -63,6 +64,17 @@ public class SpecRegenTimerOverlay extends Overlay {
 		}
 		if (widget == null)
 		{
+			return null;
+		}
+		Widget icon = client.getWidget(InterfaceID.Orbs.SPECENERGY_ICON);
+		if (icon == null)
+		{
+			return null;
+		}
+		if (icon.getSpriteId() == SpriteID.OrbIcon._22)
+		{
+			// Hide tooltip when special attack orb is replaced with windmotes
+			// Controlled by VarbitID.SETTINGS_SAILING_WIND_ON_ORB_DISABLED
 			return null;
 		}
 		final Rectangle bounds = widget.getBounds();
